@@ -9,7 +9,6 @@ public class HelloWorld {
 	public static String helloWorld() {
 		//add your code below thus this helloWorld method returns "Hello World!"
 		return "Hello World!";
-		
 	}
 
 }
