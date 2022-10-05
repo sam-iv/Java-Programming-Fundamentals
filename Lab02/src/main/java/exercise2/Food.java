@@ -12,5 +12,10 @@ public class Food {
 		return amountOfSugar;
 	}
 	
+	public Food(String name, double amountOfSugar) {
+		super();
+		this.name = name;
+		this.amountOfSugar = amountOfSugar;
+	}
 	
 }
