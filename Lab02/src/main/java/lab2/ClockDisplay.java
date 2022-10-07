@@ -12,10 +12,10 @@ public class ClockDisplay {
 	}
 	
 	public void timeTick() {
-		minutes.Increment();
+		minutes.increment();
 		
 		if (minutes.getValue() == 0) {
-			hours.Increment();
+			hours.increment();
 		}
 	}
 

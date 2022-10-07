@@ -18,7 +18,7 @@ public class NumberInfo {
 		this.limit = limit;
 	}
 	
-	public void Increment() {
+	public void increment() {
 		this.value++;
 		this.value = (this.value) % this.limit; 
 	}

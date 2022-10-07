@@ -27,11 +27,11 @@ public class NumberTest {
 		 */
 		
 		NumberInfo number = new NumberInfo(3);
-		number.Increment();
+		number.increment();
 		System.out.println(number.getValue());
-		number.Increment();
+		number.increment();
 		System.out.println(number.getValue());
-		number.Increment();
+		number.increment();
 		System.out.println(number.getValue());
 	}
 
