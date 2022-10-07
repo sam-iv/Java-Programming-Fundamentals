@@ -28,8 +28,11 @@ public class ClockDisplay {
 		DecimalFormat style2 = new DecimalFormat("0");
 		
 		if (clockType == true) {
-			if (hours.getValue() >= 13) {
+			if (hours.getValue() > 12) {
 				return (style2.format(this.hours.getValue() - 12) + ":" + style1.format(this.minutes.getValue()) + "pm");
+			}
+			if (hours.getValue() == 12) {
+				return (style2.format(this.hours.getValue()) + ":" + style1.format(this.minutes.getValue()) + "pm");
 			}
 			else {
 				return (style2.format(this.hours.getValue()) + ":" + style1.format(this.minutes.getValue()) + "am");
