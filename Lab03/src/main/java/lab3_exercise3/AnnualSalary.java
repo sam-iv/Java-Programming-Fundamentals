@@ -21,16 +21,16 @@ public class AnnualSalary {
 	
 	public double calculateTax() {
 		if (salary > allowance && salary <= taxThreshold) {
-			double taxSalary = (salary - allowance);
-			taxSalary *= bRate;
+			double tax = (salary - allowance);
+			tax *= bRate;
 			
-			return(taxSalary);
+			return(tax);
 		}
 		if (salary > taxThreshold) {
-			double taxSalary = (salary - taxThreshold);
-			taxSalary *= hRate;
+			double tax = (salary - taxThreshold);
+			tax *= hRate;
 			
-			return(taxSalary + maxTax);
+			return(tax + maxTax);
 		} else {
 			return 0D;
 		}
