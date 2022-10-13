@@ -4,8 +4,8 @@ public class Mail {
 	private User sender, recipient;
 	private String message;
 	
-	public User getSender() {
-		return sender;
+	public String getSender() {
+		return sender.toString();
 	}
 	public User getRecipient() {
 		return recipient;
