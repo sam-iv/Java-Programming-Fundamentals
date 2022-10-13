@@ -46,10 +46,10 @@ public class Employee {
 	@Override
 	public String toString() {
 		if (eligibleForBonus() == true) {
-			return surname + ", " + forename + " (" + id + "): " + getPositionName() + " at £" + salary.getSalary() + 
+			return surname + ", " + forename + " (" + id + "): " + getPositionName() + " at £" + getSalary() + 
 					" (£" + salary.calculateTax() + " tax) and is eligible for bonus.";
 		} else {
-			return surname + ", " + forename + " (" + id + "): " + getPositionName() + " at £" + salary.getSalary() + 
+			return surname + ", " + forename + " (" + id + "): " + getPositionName() + " at £" + getSalary() + 
 					" (£" + salary.calculateTax() + " tax) and is not eligible for bonus.";
 		}
 	}
