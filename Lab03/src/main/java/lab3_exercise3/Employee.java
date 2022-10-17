@@ -6,7 +6,6 @@ public class Employee {
 	private AnnualSalary salary;
 	private Position companyPosition;
 	
-	
 	public int getId() {
 		return id;
 	}
