@@ -48,6 +48,9 @@ public class Example3 {
 
 		// Loop through the array and print out all of its values.
 		// Add code here
+		for (String name : names) {
+			System.out.println("Name is " + name);
+		}
 	}
 
 }
