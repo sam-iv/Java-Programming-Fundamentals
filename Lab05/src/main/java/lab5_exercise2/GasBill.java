@@ -4,6 +4,7 @@ public class GasBill {
 	private String accountNumber;
 	private double amount;
 	private Customer customer;
+	private String regEx = "\\d{4}-\\d{4}-\\d{4}";
 	
 	public String getAccountNumber() {
 		return accountNumber;
@@ -14,20 +15,14 @@ public class GasBill {
 	
 	public GasBill(String accountNumber, double amount, Customer customer) {
 		super();
-		this.accountNumber = accountNumber;
+		if (accountNumber.matches(regEx)) {
+			this.accountNumber = accountNumber;
+		} else {
+			this.accountNumber = "Invalid Account";
+		}
+		
 		this.amount = amount;
 		this.customer = customer;
-		
-		
-		for (int i = 0; i < 13; i++) {
-			if (i == 4 || i == 9) {
-				if (this.accountNumber.charAt(i) != '-') {
-					this.accountNumber = "Invalid Account";
-				} else {
-					continue;
-				}
-			}
-		}
 	}
 	
 	private String displayAmountDue() {
