@@ -9,7 +9,7 @@ public class ClockDisplay {
 	
 	public ClockDisplay(boolean clockType) {
 		super();
-		this.hours = new NumberInfo(24);
+		this.hours = new NumberInfo(24); //
 		this.minutes = new NumberInfo(60);
 		this.clockType = clockType;
 	}
