@@ -4,13 +4,13 @@ public class Halfbacks {
 	private Player[] halfBackers;
 	
 	public String getPlayer(RugbyPosition position) {
-		if (position == RugbyPosition.FLYHALF) {
-			return halfBackers[1].getName();
-		}
-		if (position == RugbyPosition.SCRUMHALF) {
-			return halfBackers[0].getName();
-		} else {
-			return null;
+		switch(position) {
+			case FLYHALF:
+				return halfBackers[1].getName();
+			case SCRUMHALF:
+				return halfBackers[0].getName();
+			default:
+				return null;
 		}
 	}
 	
@@ -32,8 +32,6 @@ public class Halfbacks {
 		StringBuffer output = new StringBuffer();
 		
 		for (int i = 0; i < 2; i++) {
-			//output += i + " - " + halfBackers[i].getName() + " " + halfBackers[i].getPosition();
-			//output += "\n";
 			if (halfBackers[i] == null) {
 				output.append(i + " - " + "\n");
 				continue;
