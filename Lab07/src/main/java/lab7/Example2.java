@@ -1,7 +1,5 @@
 package lab7;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,7 +45,11 @@ public class Example2 {
 	 */
 	private boolean checkifElementExists(double value) {
 		// add your code here
-
+		if (values.contains(value)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -56,7 +58,7 @@ public class Example2 {
 	public double retrieveElement(int index) {
 		double value = 0;
 		// add your code here
-
+		return 0D;
 	}
 
 	/**
@@ -64,7 +66,7 @@ public class Example2 {
 	 */
 	public String displayList() {
 		// add your code here
-
+		return "";
 	}
 
 	/**
@@ -72,11 +74,11 @@ public class Example2 {
 	 */
 	public String displayOrderedList() {
 		// add your code here
-
+		StringBuffer output = new StringBuffer();
 		output.append("Ordered List\n");
 
 		// add your code here
-
+		return "";
 	}
 
 	/**
@@ -84,7 +86,7 @@ public class Example2 {
 	 */
 	public double calculateAverage() {
 		// add your code here
-
+		return 0D;
 	}
 
 	/**
