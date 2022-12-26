@@ -19,10 +19,13 @@ public class Example1 {
 
 		int dontDivideMeByZero = 5;
 		int x = 0;
+
+		if (x == 0) {
+			throw new IllegalArgumentException("x cannot be 0");
+		}
 		int result = dontDivideMeByZero / x;
 
 		System.out.println("Result = " + result);
-		
-		
+
 	}
 }

@@ -16,17 +16,31 @@ public class Person implements Comparable<Person> {
 	/** Attribute to store the person's age in years. */
 	private int age;
 
+	private String regEx1 = "[A-Z]{1}[a-z]*";
+
 	/**
 	 * Constructor allowing the person's details to be specified.
 	 * 
-	 * @param forename their forename.
-	 * @param surname  their surname.
-	 * @param age      their age.
+	 * @param forename
+	 *            their forename.
+	 * @param surname
+	 *            their surname.
+	 * @param age
+	 *            their age.
+	 * @throws InvalidSurnameException
 	 * @throws InvalidAgeException
 	 */
-	public Person(String forename, String surname, int age) {
+	public Person(String forename, String surname, int age)
+			throws InvalidSurnameException, InvalidAgeException {
 		super();
-		// the constructor needs to be modified as per the instructions on page 16
+		// the constructor needs to be modified as per the instructions on page
+		// 16
+		if (!surname.matches(regEx1)) {
+			throw new InvalidSurnameException();
+		}
+		if (age <= 0) {
+			throw new InvalidAgeException();
+		}
 		this.forename = forename;
 		this.surname = surname;
 		this.age = age;
@@ -34,9 +48,9 @@ public class Person implements Comparable<Person> {
 	}
 
 	/**
-	 * This method is required for the Comparable interface. It allows us to sort
-	 * Person objects into an order based upon a specified sort order. Here the
-	 * order is alphabetic by surname only.
+	 * This method is required for the Comparable interface. It allows us to
+	 * sort Person objects into an order based upon a specified sort order. Here
+	 * the order is alphabetic by surname only.
 	 * 
 	 * @param person
 	 * @return 0 if the two Person objects contain the same information, -1 if

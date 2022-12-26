@@ -13,7 +13,8 @@ public class Example1 {
 	/**
 	 * Main entry point: this is the first method that is run.
 	 * 
-	 * @param args The command line arguments.
+	 * @param args
+	 *            The command line arguments.
 	 */
 	public static void main(String[] args) {
 		// declaration of new array with 3 elements of type String
@@ -29,13 +30,12 @@ public class Example1 {
 		grades[2] = 75;
 
 		// print all elements within the names array
-		
+
 		/*
-		System.out.println(names[0]);
-		System.out.println(names[1]);
-		System.out.println(names[2]);
-		*/
-		
+		 * System.out.println(names[0]); System.out.println(names[1]);
+		 * System.out.println(names[2]);
+		 */
+
 		for (int i = 0; i < names.length; i++) {
 			System.out.println(names[i]);
 		}
@@ -44,13 +44,12 @@ public class Example1 {
 		System.out.println();
 
 		// print all elements within the grades array
-		
+
 		/*
-		System.out.println(grades[0]);
-		System.out.println(grades[1]);
-		System.out.println(grades[2]);
-		*/
-		
+		 * System.out.println(grades[0]); System.out.println(grades[1]);
+		 * System.out.println(grades[2]);
+		 */
+
 		for (int i = 0; i < grades.length; i++) {
 			System.out.println(grades[i]);
 		}
@@ -60,11 +59,11 @@ public class Example1 {
 
 		// print combination of two arrays
 		/*
-		System.out.println(names[0] + " achieved " + grades[0] + "%");
-		System.out.println(names[1] + " achieved " + grades[1] + "%");
-		System.out.println(names[2] + " achieved " + grades[2] + "%");
-		*/
-		
+		 * System.out.println(names[0] + " achieved " + grades[0] + "%");
+		 * System.out.println(names[1] + " achieved " + grades[1] + "%");
+		 * System.out.println(names[2] + " achieved " + grades[2] + "%");
+		 */
+
 		for (int i = 0; i < names.length; i++) {
 			System.out.println(names[i] + " achieved " + grades[i] + "%");
 		}

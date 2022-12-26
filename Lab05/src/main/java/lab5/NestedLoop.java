@@ -16,7 +16,8 @@ public class NestedLoop {
 	public static void main(String[] args) {
 		// Loop through the first 5 times tables.
 		for (int i = 1; i <= 5; i++) {
-			// Keep a running total of the values in the times table. Make sure this is
+			// Keep a running total of the values in the times table. Make sure
+			// this is
 			// initially zero.
 			int total = 0;
 
@@ -31,17 +32,6 @@ public class NestedLoop {
 
 			// Print out the total value of the multiples of this table.
 			System.out.println("Total of table is " + total);
-		}
-		
-		for (int i = 1; i < 7; i++) {
-			int k = i;
-			String output = "" + i;
-			
-			for (int j = 0; j < 3; j++) {
-				k += 2;
-				output += " " + (k);
-			}
-			System.out.println(output);
 		}
 	}
 }

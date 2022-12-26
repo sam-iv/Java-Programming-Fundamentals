@@ -1,6 +1,7 @@
 package lab8;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -20,7 +21,21 @@ public class Example3 {
 		File file = new File("test1.txt");
 		FileWriter fileWriter = null;
 
-		fileWriter = new FileWriter(file);
-
+		try {
+			fileWriter = new FileWriter(file);
+			fileWriter.write("Adding this line to the file");
+		} catch (FileNotFoundException e) {
+			System.out.println("Could not find file " + file);
+		} catch (IOException e) {
+			System.out.println("Something went wrong");
+		} finally {
+			if (fileWriter != null) {
+				try {
+					fileWriter.close();
+				} catch (IOException e) {
+					System.out.println("Could not close file");
+				}
+			}
+		}
 	}
 }
