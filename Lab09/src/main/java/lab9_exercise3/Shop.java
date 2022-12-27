@@ -1,4 +1,4 @@
-package lab9_exercise1;
+package lab9_exercise3;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -10,7 +10,6 @@ public class Shop {
 
 	public Shop() {
 		items = new ArrayList<>();
-
 	}
 
 	public void addItem(IItem item) {
