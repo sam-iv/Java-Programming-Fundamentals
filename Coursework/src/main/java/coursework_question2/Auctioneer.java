@@ -77,6 +77,9 @@ public class Auctioneer {
     if (carAdvert == null || user == null) {
       throw new IllegalArgumentException();
     }
+    if (!(carAdvert.getCar().getType() == SaleType.AUCTION)) {
+      return false;
+    }
     if (!checkExistence(carAdvert.getCar())) {
       return false;
     } else {

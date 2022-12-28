@@ -60,9 +60,11 @@ public class Trader extends Dealership {
     if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
       soldCars.put(advert, advert.getHighestOffer().getBuyer());
       carsForSale.remove(advert);
+      unsoldCars.remove(advert);
     } else {
       unsoldCars.put(advert, carsForSale.get(advert));
       carsForSale.remove(advert);
+
     }
   }
 
@@ -71,12 +73,20 @@ public class Trader extends Dealership {
     if (carAdvert == null || user == null) {
       throw new IllegalArgumentException();
     }
+    if (!(carAdvert.getCar().getType() == SaleType.FORSALE)) {
+      return false;
+    }
     if (!checkExistence(carAdvert.getCar())) {
       return false;
-    } else {
+    }
+    if (value >= carAdvert.getCar().getPrice()) {
       carAdvert.placeOffer((Buyer) user, value);
       endSale(carAdvert);
       return true;
+
+    } else {
+      carAdvert.placeOffer((Buyer) user, value);
+      return false;
     }
   }
 
@@ -95,5 +105,6 @@ public class Trader extends Dealership {
       return;
     }
     carsForSale.put(carAdvert, (Seller) user);
+    unsoldCars.put(carAdvert, (Seller) user);
   }
 }

@@ -1,24 +1,20 @@
-package coursework_question2;
+package coursework_question4;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-public class Trader {
-  protected String name;
-  protected HashMap<Advert, User> carsForSale, soldCars, unsoldCars;
+public class Trader extends Dealership {
+  private List<Seller> sellers;
 
   public Trader(String name) {
-    super();
-    this.name = name;
-
-    carsForSale = new HashMap<>();
-    soldCars = new HashMap<>();
-    unsoldCars = new HashMap<>();
+    super(name);
+    sellers = new ArrayList<>();
   }
 
   private boolean checkExistence(Car car) {
     boolean exists = false;
-    for (Map.Entry<Advert, User> entry : carsForSale.entrySet()) {
+    for (Map.Entry<Advert, Seller> entry : carsForSale.entrySet()) {
       if (entry.getKey().getCar() == car) {
         exists = true;
       }
@@ -26,30 +22,34 @@ public class Trader {
     return exists;
   }
 
+  @Override
   public String displaySoldCars() {
     StringBuffer sb = new StringBuffer();
     sb.append("SOLD CARS:\n");
-    for (Map.Entry<Advert, User> entry : soldCars.entrySet()) {
-      sb.append(entry.getKey().getCar().getID() + " - Purchased by " + name + " with a successful £"
+    for (Map.Entry<Advert, Buyer> entry : soldCars.entrySet()) {
+      sb.append(entry.getKey().getCar().getID() + " - Purchased by " + entry.getValue().toString()
+          + " with a successful £"
           + String.format("%.2f", entry.getKey().getHighestOffer().getValue()) + " bid.\n");
     }
     return sb.toString();
   }
 
+  @Override
   public String displayStatistics() {
     return "Statistics";
   }
 
+  @Override
   public String displayUnsoldCars() {
     StringBuffer sb = new StringBuffer();
     sb.append("UNSOLD CARS:\n");
-    for (Map.Entry<Advert, User> entry : unsoldCars.entrySet()) {
+    for (Map.Entry<Advert, Seller> entry : unsoldCars.entrySet()) {
       sb.append(entry.getKey().toString());
     }
     return sb.toString();
   }
 
-  public void endSale(Advert advert) {
+  private void endSale(Advert advert) {
     if (advert == null) {
       throw new IllegalArgumentException();
     }
@@ -58,14 +58,17 @@ public class Trader {
     }
 
     if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
-      soldCars.put(advert, carsForSale.get(advert));
+      soldCars.put(advert, advert.getHighestOffer().getBuyer());
       carsForSale.remove(advert);
+      unsoldCars.remove(advert);
     } else {
       unsoldCars.put(advert, carsForSale.get(advert));
       carsForSale.remove(advert);
+
     }
   }
 
+  @Override
   public boolean placeOffer(Advert carAdvert, User user, double value) {
     if (carAdvert == null || user == null) {
       throw new IllegalArgumentException();
@@ -77,32 +80,31 @@ public class Trader {
       return false;
     }
     if (value >= carAdvert.getCar().getPrice()) {
-      carAdvert.placeOffer(user, value);
+      carAdvert.placeOffer((Buyer) user, value);
       endSale(carAdvert);
       return true;
 
     } else {
-      carAdvert.placeOffer(user, value);
-      endSale(carAdvert);
+      carAdvert.placeOffer((Buyer) user, value);
       return false;
     }
   }
 
+  @Override
   public void registerCar(Advert carAdvert, User user, String colour, CarType type, CarBody body,
-      int noOfSeats) {
+      int numberOfSeats) {
     if (carAdvert == null || user == null) {
       throw new IllegalArgumentException();
     }
-
     carAdvert.getCar().setGearbox(type);
     carAdvert.getCar().setColour(colour);
     carAdvert.getCar().setBody(body);
-    carAdvert.getCar().setNumberOfSeats(noOfSeats);
+    carAdvert.getCar().setNumberOfSeats(numberOfSeats);
 
     if (checkExistence(carAdvert.getCar())) {
       return;
     }
-    carsForSale.put(carAdvert, user);
+    carsForSale.put(carAdvert, (Seller) user);
+    unsoldCars.put(carAdvert, (Seller) user);
   }
 }
-

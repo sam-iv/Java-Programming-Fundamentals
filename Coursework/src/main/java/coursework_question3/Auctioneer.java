@@ -71,12 +71,14 @@ public class Auctioneer extends Dealership {
     if (carAdvert == null || user == null) {
       throw new IllegalArgumentException();
     }
+    if (!(carAdvert.getCar().getType() == SaleType.AUCTION)) {
+      return false;
+    }
     if (!checkExistence(carAdvert.getCar())) {
       return false;
-    } else {
-      carAdvert.placeOffer((Buyer) user, value);
-      return true;
     }
+    carAdvert.placeOffer((Buyer) user, value);
+    return true;
   }
 
   @Override
