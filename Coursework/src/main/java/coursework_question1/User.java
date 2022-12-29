@@ -1,6 +1,3 @@
-/**
- * 
- */
 package coursework_question1;
 
 public class User {

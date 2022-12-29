@@ -1,18 +1,13 @@
-/**
- * 
- */
 package coursework_question2;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author samiv
- *
- */
 public class Auctioneer {
   protected String name;
-  protected HashMap<Advert, User> carsForSale, soldCars, unsoldCars;
+  protected HashMap<Advert, User> carsForSale;
+  protected HashMap<Advert, User> soldCars;
+  protected HashMap<Advert, User> unsoldCars;
 
   public Auctioneer(String name) {
     super();

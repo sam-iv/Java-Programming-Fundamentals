@@ -1,8 +1,10 @@
 package coursework_question1;
 
 public class Car {
-  private int id, numberOfSeats;
-  private String name, colour;
+  private int id;
+  private int numberOfSeats;
+  private String name;
+  private String colour;
   private double reservedPrice;
   private CarType gearbox;
   private CarBody body;

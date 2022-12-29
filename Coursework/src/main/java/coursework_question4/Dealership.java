@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 public abstract class Dealership {
   protected String name;
-  protected HashMap<Advert, Seller> carsForSale, unsoldCars;
+  protected HashMap<Advert, Seller> carsForSale;
+  protected HashMap<Advert, Seller> unsoldCars;
   protected HashMap<Advert, Buyer> soldCars;
 
   public Dealership(String name) {

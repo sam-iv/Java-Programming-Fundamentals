@@ -8,6 +8,7 @@ public class ReadyMeal {
 	private String name;
 	private ProductType type;
 	private Factory factory;
+	@SuppressWarnings("unused")
 	private Date productionDate;
 	private List<IItem> items;
 

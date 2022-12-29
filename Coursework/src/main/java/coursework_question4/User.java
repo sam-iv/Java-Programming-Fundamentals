@@ -1,6 +1,3 @@
-/**
- * 
- */
 package coursework_question4;
 
 public abstract class User {
