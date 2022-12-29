@@ -1,6 +1,7 @@
 package coursework_question1;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class AdvertJTest {
@@ -8,7 +9,6 @@ public class AdvertJTest {
   Car car = new Car(6969, "Mercedes-Benz EQC", 72335, Condition.NEW);
   User buyer1 = new User("Samuel Ivuerah");
   User buyer2 = new User("***REMOVED***");
-
 
   @Test
   public void coursework_testCarConstruction() {
