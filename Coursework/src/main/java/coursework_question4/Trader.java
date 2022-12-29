@@ -1,5 +1,11 @@
 package coursework_question4;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +42,71 @@ public class Trader extends Dealership {
 
   @Override
   public String displayStatistics() {
-    return "Statistics";
+    BufferedReader reader = null;
+    StringBuffer display = new StringBuffer();
+
+    display.append("** Trader - " + name + "**\n");
+    try {
+      reader = new BufferedReader(new FileReader("trade_statistics.txt"));
+      String line = reader.readLine();
+
+      while (line != null) {
+        display.append(line + "\n");
+        line = reader.readLine();
+      }
+      display.setLength(display.length() - 1);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (reader != null) {
+          reader.close();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return display.toString();
+  }
+
+  public void updateStatistics(Seller seller) {
+    seller.setSales(seller.getSales() + 1);
+
+    if (!sellers.contains(seller)) {
+      sellers.add(seller);
+    }
+    saveInFile(soldCars.size());
+  }
+
+  private void saveInFile(int noOfSales) {
+    File file = new File("trade_statistics.txt");
+    FileWriter fileWriter = null;
+
+    try {
+      fileWriter = new FileWriter(file);
+      fileWriter.write("Total Sales: " + noOfSales + "\n" + "All Sellers:\n");
+      for (Seller seller : sellers) {
+        fileWriter.write("\t" + seller.toString());
+        if (!(sellers.indexOf(seller) == sellers.size() - 1)) {
+          fileWriter.write("\n");
+        }
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      if (fileWriter != null) {
+        try {
+          fileWriter.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
   }
 
   @Override
@@ -59,6 +129,7 @@ public class Trader extends Dealership {
 
     if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
       soldCars.put(advert, advert.getHighestOffer().getBuyer());
+      updateStatistics(carsForSale.get(advert));
       carsForSale.remove(advert);
       unsoldCars.remove(advert);
     } else {

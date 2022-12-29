@@ -8,16 +8,6 @@ public class Guest implements IGuest {
 	private String forename, surname, address, telephone;
 	private List<Charge> charges;
 
-	public Guest(String forename, String surname, String address,
-			String telephone) {
-		super();
-		this.forename = forename;
-		this.surname = surname;
-		this.address = address;
-		this.telephone = telephone;
-		charges = new ArrayList<>();
-	}
-
 	public String getForename() {
 		return forename;
 	}
@@ -32,6 +22,16 @@ public class Guest implements IGuest {
 	}
 	public List<Charge> getCharges() {
 		return charges;
+	}
+
+	public Guest(String forename, String surname, String address,
+			String telephone) {
+		super();
+		this.forename = forename;
+		this.surname = surname;
+		this.address = address;
+		this.telephone = telephone;
+		charges = new ArrayList<>();
 	}
 
 	@Override

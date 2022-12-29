@@ -4,7 +4,7 @@ public class Service {
 	private String code, name;
 	private VATRate rate;
 	private double standardCharge;
-	private String regEx = "ROOM[1-9]{4}";
+	private String regEx = "[A-Z]{4}[1-9]{4}";
 
 	public String getCode() {
 		return code;

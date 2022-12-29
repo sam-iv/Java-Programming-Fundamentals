@@ -2,7 +2,6 @@ package coursework_question4;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 public class TraderJTest {
@@ -35,8 +34,7 @@ public class TraderJTest {
 
     trader.registerCar(ad, seller, "Blue", CarType.AUTOMATIC, CarBody.HATCHBACK, 5);
     trader.placeOffer(ad, buyer, 20000);
-    assertEquals(
-        "SOLD CARS:\n" + "1234 - Purchased by S***a with a successful £20000.00 bid. \n" + "",
+    assertEquals("SOLD CARS:\n" + "1234 - Purchased by S***a with a successful £20000.00 bid.\n",
         trader.displaySoldCars());
     System.out.println(trader.displaySoldCars());
 
@@ -119,8 +117,9 @@ public class TraderJTest {
     trader.placeOffer(ad7, buyer, 4500);
     trader.placeOffer(ad8, buyer, 2000);
 
-    assertEquals("** Trader - AutoTrader**\n" + "Total Sales: 3\n" + "All Sellers:\n"
-        + "\tAlice W. (Sales: 1, Rating: Level 1)\n" + "\tSid J. (Sales: 2, Rating: Level 1)",
+    assertEquals(
+        "** Trader - AutoTrader**\n" + "Total Sales: 3\n" + "All Sellers:\n"
+            + "\tAlice W. (Sales: 1, Rating: Level 1)\n" + "\tSid J. (Sales: 2, Rating: Level 1)",
         trader.displayStatistics());
   }
 }

@@ -1,5 +1,11 @@
 package coursework_question4;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +16,7 @@ public class Auctioneer extends Dealership {
   public Auctioneer(String name) {
     super(name);
     sales = new HashMap<>();
+    topSeller = new Seller("Null Null");
   }
 
   private boolean checkExistence(Car car) {
@@ -36,14 +43,97 @@ public class Auctioneer extends Dealership {
 
   @Override
   public String displayStatistics() {
-    return "Statistics";
+    BufferedReader reader = null;
+    StringBuffer display = new StringBuffer();
+
+    display.append("** Auctioneer - " + name + "**\n");
+    try {
+      reader = new BufferedReader(new FileReader("auction_statistics.txt"));
+      String line = reader.readLine();
+
+      while (line != null) {
+        display.append(line + "\n");
+        line = reader.readLine();
+      }
+      display.setLength(display.length() - 1);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (reader != null) {
+          reader.close();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return display.toString();
   }
 
   private void updateStatistics(Seller seller) {
     seller.setSales(seller.getSales() + 1);
+
+    if (sales.containsKey(seller)) {
+      for (Map.Entry<Seller, Integer> entry : sales.entrySet()) {
+        if (entry.getKey() == seller) {
+          entry.setValue(entry.getValue() + 1);
+        }
+      }
+    } else {
+      sales.put(seller, 1);
+    }
+
+    int manual = 0;
+    int automatic = 0;
+    int totalSales = soldCars.size();
+
+    for (Map.Entry<Advert, Buyer> entry : soldCars.entrySet()) {
+      if (entry.getKey().getCar().getGearbox() == CarType.AUTOMATIC) {
+        automatic++;
+      } else {
+        manual++;
+      }
+    }
+
+    for (Map.Entry<Seller, Integer> entry : sales.entrySet()) {
+      if (entry.getValue() > topSeller.getSales() || topSeller == null) {
+        topSeller = entry.getKey();
+      }
+    }
+
+    double percentMan = manual * 100 / totalSales;
+    double percentAuto = automatic * 100 / totalSales;
+
+    saveInFile(totalSales, percentMan, percentAuto);
+
   }
 
+  private void saveInFile(int noOfSales, double percentageOfManual, double percentageOfAutomatic) {
+    File file = new File("auction_statistics.txt");
+    FileWriter fileWriter = null;
 
+    try {
+      fileWriter = new FileWriter(file);
+      fileWriter.write("Total Auction Sales: " + noOfSales + "\n" + "Automatic Cars: "
+          + percentageOfAutomatic + "%\n" + "Manual Cars: " + percentageOfManual + "%\n"
+          + "Top Seller: " + topSeller.toString());
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      if (fileWriter != null) {
+        try {
+          fileWriter.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+  }
 
   @Override
   public String displayUnsoldCars() {
@@ -65,6 +155,9 @@ public class Auctioneer extends Dealership {
 
     if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
       soldCars.put(advert, advert.getHighestOffer().getBuyer());
+
+      updateStatistics(carsForSale.get(advert));
+
       carsForSale.remove(advert);
     } else {
       unsoldCars.put(advert, carsForSale.get(advert));
