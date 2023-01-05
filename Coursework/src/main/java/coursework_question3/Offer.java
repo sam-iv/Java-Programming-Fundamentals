@@ -1,5 +1,6 @@
 package coursework_question3;
 
+
 public class Offer {
   private double value;
   private User buyer;

@@ -11,7 +11,8 @@ public class Advert {
   public Car getCar() {
     return car;
   }
-
+  
+  //For J Unit tests
   public List<Offer> getOffers() {
     return offers;
   }

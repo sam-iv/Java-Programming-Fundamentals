@@ -28,7 +28,7 @@ public class AdvertJTest {
     advert.placeOffer(buyer1, 3000);
     advert.placeOffer(buyer2, 4000);
 
-    assertEquals(buyer2.toString(), advert.getHighestOffer().getBuyer());
+    assertEquals(buyer2.getName(), advert.getHighestOffer().getBuyer().getName());
   }
 
   @Test

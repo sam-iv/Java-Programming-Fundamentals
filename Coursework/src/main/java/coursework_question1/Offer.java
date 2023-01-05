@@ -4,8 +4,8 @@ public class Offer {
   private double value;
   private User buyer;
 
-  public String getBuyer() {
-    return buyer.toString();
+  public User getBuyer() {
+    return buyer;
   }
 
   public double getValue() { // Temporary
