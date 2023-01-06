@@ -11,14 +11,14 @@ public class AdvertJTest {
   User buyer2 = new User("***REMOVED***");
 
   @Test
-  public void coursework_testCarConstruction() {
+  public void coursework_testAdvertConstruction() {
     advert = new Advert(car);
 
     assertEquals(car, advert.getCar());
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void coursework_testInvalidCar() {
+  public void coursework_testInvalidAdvert() {
     advert = new Advert(null);
   }
 

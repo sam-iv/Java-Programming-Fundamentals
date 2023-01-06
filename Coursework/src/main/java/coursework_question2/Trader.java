@@ -19,13 +19,12 @@ public class Trader {
   }
 
   private boolean checkExistence(Car car) {
-    boolean exists = false;
     for (Map.Entry<Advert, User> entry : carsForSale.entrySet()) {
       if (entry.getKey().getCar() == car) {
-        exists = true;
+        return true;
       }
     }
-    return exists;
+    return false;
   }
 
   public String displaySoldCars() {

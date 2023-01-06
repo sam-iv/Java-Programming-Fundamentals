@@ -20,13 +20,12 @@ public class Auctioneer extends Dealership {
   }
 
   private boolean checkExistence(Car car) {
-    boolean exists = false;
     for (Map.Entry<Advert, Seller> entry : carsForSale.entrySet()) {
       if (entry.getKey().getCar() == car) {
-        exists = true;
+        return true;
       }
     }
-    return exists;
+    return false;
   }
 
   @Override
