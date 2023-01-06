@@ -125,16 +125,17 @@ public class Trader extends Dealership {
     if (!carsForSale.containsKey(advert)) {
       return;
     }
-
-    if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
-      soldCars.put(advert, advert.getHighestOffer().getBuyer());
-      updateStatistics(carsForSale.get(advert));
-      carsForSale.remove(advert);
-      unsoldCars.remove(advert);
-    } else {
-      unsoldCars.put(advert, carsForSale.get(advert));
-      carsForSale.remove(advert);
-
+    
+    if (carsForSale.containsKey(advert)) {
+      if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
+        soldCars.put(advert, advert.getHighestOffer().getBuyer());
+        updateStatistics(carsForSale.get(advert));
+        carsForSale.remove(advert);
+        unsoldCars.remove(advert);
+      } else {
+        unsoldCars.put(advert, carsForSale.get(advert));
+        carsForSale.remove(advert);
+      }
     }
   }
 

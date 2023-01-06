@@ -101,16 +101,15 @@ public class Auctioneer {
     if (advert == null) {
       throw new IllegalArgumentException();
     }
-    if (!carsForSale.containsKey(advert)) {
-      return;
-    }
-
-    if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
-      soldCars.put(advert, carsForSale.get(advert));
-      carsForSale.remove(advert);
-    } else {
-      unsoldCars.put(advert, carsForSale.get(advert));
-      carsForSale.remove(advert);
+    
+    if (carsForSale.containsKey(advert)) {
+      if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
+        soldCars.put(advert, carsForSale.get(advert));
+        carsForSale.remove(advert);
+      } else {
+        unsoldCars.put(advert, carsForSale.get(advert));
+        carsForSale.remove(advert);
+      }
     }
   }
 
