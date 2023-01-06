@@ -92,9 +92,8 @@ public class Auctioneer {
     carAdvert.getCar().setBody(body);
     carAdvert.getCar().setNumberOfSeats(noOfSeats);
 
-    if (checkExistence(carAdvert.getCar())) {
-      return;
+    if (!checkExistence(carAdvert.getCar())) {
+      carsForSale.put(carAdvert, user);
     }
-    carsForSale.put(carAdvert, user);
   }
 }

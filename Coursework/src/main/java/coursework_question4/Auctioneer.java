@@ -189,10 +189,9 @@ public class Auctioneer extends Dealership {
     carAdvert.getCar().setColour(colour);
     carAdvert.getCar().setBody(body);
     carAdvert.getCar().setNumberOfSeats(numberOfSeats);
-
-    if (checkExistence(carAdvert.getCar())) {
-      return;
+    
+    if (!checkExistence(carAdvert.getCar())) {
+      carsForSale.put(carAdvert, (Seller) user);
     }
-    carsForSale.put(carAdvert, (Seller) user);
   }
 }

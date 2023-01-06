@@ -171,10 +171,9 @@ public class Trader extends Dealership {
     carAdvert.getCar().setBody(body);
     carAdvert.getCar().setNumberOfSeats(numberOfSeats);
 
-    if (checkExistence(carAdvert.getCar())) {
-      return;
+    if (!checkExistence(carAdvert.getCar())) {
+      carsForSale.put(carAdvert, (Seller) user);
+      unsoldCars.put(carAdvert, (Seller) user);
     }
-    carsForSale.put(carAdvert, (Seller) user);
-    unsoldCars.put(carAdvert, (Seller) user);
   }
 }

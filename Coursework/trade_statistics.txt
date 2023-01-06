@@ -1,3 +1,3 @@
-Total Sales: 2
+Total Sales: 1
 All Sellers:
-	Adam H. (Sales: 2, Rating: Level 1)
+	Sid J. (Sales: 1, Rating: Level 1)
