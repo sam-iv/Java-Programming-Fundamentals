@@ -15,12 +15,21 @@ public class Auctioneer {
   protected String name;
 
   /**
-   * Mappings to store cars for sale, cars sold, and unsold cars. CarsForSale, soldCars, unsoldCars
-   * are {@link HashMap} collections that contain {@link Advert} as a key and {@link User} as a
-   * value.
+   * Mapping to store cars for sale. CarsForSale is a {@link HashMap} collection that contains
+   * {@link Advert} as a key and {@link User} as a value.
    */
   protected HashMap<Advert, User> carsForSale;
+
+  /**
+   * Mapping to store cars sold. SoldCars is a {@link HashMap} collection that contains
+   * {@link Advert} as a key and {@link User} as a value.
+   */
   protected HashMap<Advert, User> soldCars;
+  
+  /**
+   * Mapping to store unsold cars. UnsoldCars is a {@link HashMap} collection that contains
+   * {@link Advert} as a key and {@link User} as a value.
+   */
   protected HashMap<Advert, User> unsoldCars;
 
   /**

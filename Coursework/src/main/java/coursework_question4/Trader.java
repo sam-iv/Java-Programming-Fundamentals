@@ -122,9 +122,6 @@ public class Trader extends Dealership {
     if (advert == null) {
       throw new IllegalArgumentException();
     }
-    if (!carsForSale.containsKey(advert)) {
-      return;
-    }
     
     if (carsForSale.containsKey(advert)) {
       if (advert.getHighestOffer().getValue() >= advert.getCar().getPrice()) {
