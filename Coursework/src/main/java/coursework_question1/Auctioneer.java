@@ -102,7 +102,7 @@ public class Auctioneer {
   }
 
   /**
-   * Method to the end the sale of an advertisements.
+   * Method to end the sale of an advertisements.
    *
    * @param advert The advertisement to be ended.
    */
