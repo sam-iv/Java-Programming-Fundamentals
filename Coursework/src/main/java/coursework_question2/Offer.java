@@ -9,14 +9,14 @@ public class Offer {
     return buyer;
   }
 
-  public double getValue() { // Temporary
+  public double getValue() {
     return this.value;
   }
 
   public Offer(User buyer, double value) {
     super();
     if (buyer == null || value <= 0) {
-      throw new IllegalArgumentException("Cannot Instantiate Object");
+      throw new IllegalArgumentException();
     }
     this.buyer = buyer;
     this.value = value;

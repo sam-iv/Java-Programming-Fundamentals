@@ -24,7 +24,6 @@ public class Buyer extends User {
 
   @Override
   public String getName() {
-    // TODO Auto-generated method stub
     return getFullname().substring(0, getFullname().indexOf(' '));
   }
 }

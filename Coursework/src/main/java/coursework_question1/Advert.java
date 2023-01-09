@@ -19,7 +19,7 @@ public class Advert {
 
   public Advert(Car car) {
     if (car == null) {
-      throw new IllegalArgumentException("Cannot create advert");
+      throw new IllegalArgumentException();
     }
 
     this.car = car;

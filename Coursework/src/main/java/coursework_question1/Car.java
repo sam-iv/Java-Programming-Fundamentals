@@ -57,7 +57,7 @@ public class Car {
   public Car(int id, String name, double reservedPrice, Condition condition) {
     super();
     if (id <= 0 || name == null || reservedPrice <= 0) {
-      throw new IllegalArgumentException("Cannot instantiate object");
+      throw new IllegalArgumentException();
     }
     this.id = id;
     this.name = name;
