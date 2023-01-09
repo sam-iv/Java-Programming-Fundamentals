@@ -1,6 +1,8 @@
 package coursework_question1;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -33,17 +35,23 @@ public class AdvertJTest {
 
   @Test
   public void coursework_testPlaceOffer() {
-    Offer offer = new Offer(buyer2, 3000);
     advert = new Advert(car);
-    advert.placeOffer(buyer2, 3000);
 
-    assertEquals(offer.toString(), advert.getOffers().get(0).toString());
+    assertTrue(advert.placeOffer(buyer2, 3000));
+  }
+
+  @Test
+  public void coursework_testInvalidPlaceOffer() {
+    advert = new Advert(car);
+
+    assertFalse(advert.placeOffer(null, -3000));
+    assertEquals(0, advert.getOffers().size());
   }
 
   @Test
   public void coursework_testToString() {
     advert = new Advert(car);
-    car.setBody(CarBody.HATCHBACK); // Making sure the advert is realistic
+    car.setBody(CarBody.HATCHBACK);
     car.setColour("Black");
     car.setGearbox(CarType.AUTOMATIC);
     car.setNumberOfSeats(5);

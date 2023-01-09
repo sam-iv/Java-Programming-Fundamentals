@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Trader {
   protected String name;
-  protected HashMap<Advert, User> carsForSale;
-  protected HashMap<Advert, User> soldCars;
-  protected HashMap<Advert, User> unsoldCars;
+  protected Map<Advert, User> carsForSale;
+  protected Map<Advert, User> soldCars;
+  protected Map<Advert, User> unsoldCars;
 
   public Trader(String name) {
     super();

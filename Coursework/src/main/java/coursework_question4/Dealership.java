@@ -1,12 +1,13 @@
 package coursework_question4;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Dealership {
   protected String name;
-  protected HashMap<Advert, Seller> carsForSale;
-  protected HashMap<Advert, Seller> unsoldCars;
-  protected HashMap<Advert, Buyer> soldCars;
+  protected Map<Advert, Seller> carsForSale;
+  protected Map<Advert, Seller> unsoldCars;
+  protected Map<Advert, Buyer> soldCars;
 
   public Dealership(String name) {
     super();

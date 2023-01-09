@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Auctioneer extends Dealership {
-  private HashMap<Seller, Integer> sales;
+  private Map<Seller, Integer> sales;
   private Seller topSeller;
 
   public Auctioneer(String name) {
