@@ -80,7 +80,6 @@ public class Trader {
       carAdvert.placeOffer(user, value);
       endSale(carAdvert);
       return true;
-
     } else {
       carAdvert.placeOffer(user, value);
       endSale(carAdvert);
