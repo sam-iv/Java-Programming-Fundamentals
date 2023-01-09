@@ -10,7 +10,6 @@ public class Auctioneer {
   protected Map<Advert, User> unsoldCars;
 
   public Auctioneer(String name) {
-    super();
     this.name = name;
 
     carsForSale = new HashMap<>();

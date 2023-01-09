@@ -10,7 +10,6 @@ public abstract class Dealership {
   protected Map<Advert, Buyer> soldCars;
 
   public Dealership(String name) {
-    super();
     this.name = name;
 
     carsForSale = new HashMap<>();

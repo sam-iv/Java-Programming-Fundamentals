@@ -38,7 +38,6 @@ public class Auctioneer {
    * @param name The name of the auctioneer.
    */
   public Auctioneer(String name) {
-    super();
     this.name = name;
 
     carsForSale = new HashMap<>();

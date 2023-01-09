@@ -82,9 +82,15 @@ public class Auctioneer extends Dealership {
         }
       }
     } else {
-      sales.put(seller, 1);
+      sales.put(seller, seller.getSales());
     }
 
+    for (Map.Entry<Seller, Integer> entry : sales.entrySet()) {
+      if (entry.getValue() > topSeller.getSales() || topSeller == null) {
+        topSeller = entry.getKey();
+      }
+    }
+    
     int manual = 0;
     int automatic = 0;
     int totalSales = soldCars.size();
@@ -94,12 +100,6 @@ public class Auctioneer extends Dealership {
         automatic++;
       } else {
         manual++;
-      }
-    }
-
-    for (Map.Entry<Seller, Integer> entry : sales.entrySet()) {
-      if (entry.getValue() > topSeller.getSales() || topSeller == null) {
-        topSeller = entry.getKey();
       }
     }
 

@@ -14,7 +14,6 @@ public class Offer {
   }
 
   public Offer(User buyer, double value) {
-    super();
     if (buyer == null || value <= 0) {
       throw new IllegalArgumentException();
     }

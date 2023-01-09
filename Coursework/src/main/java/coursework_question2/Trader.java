@@ -10,7 +10,6 @@ public class Trader {
   protected Map<Advert, User> unsoldCars;
 
   public Trader(String name) {
-    super();
     this.name = name;
 
     carsForSale = new HashMap<>();
