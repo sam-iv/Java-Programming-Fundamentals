@@ -10,7 +10,7 @@ public class AdvertJTest {
   Advert advert = null;
   Car car = new Car(6969, "Mercedes-Benz EQC", 72335, Condition.NEW);
   User buyer1 = new User("Samuel Ivuerah");
-  User buyer2 = new User("***REMOVED***");
+  User buyer2 = new User("Java Wimpy");
 
   @Test
   public void coursework_testAdvertConstruction() {
