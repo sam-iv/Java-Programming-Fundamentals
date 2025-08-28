@@ -14,12 +14,22 @@ The main coursework project is a command-line simulation of a car auction system
 
 ### Coursework UML Diagrams
 **Question 1**
+
 ![UML for Question 1](Coursework/diagrams/question1.jpg)
+
+
 **Question 2**
+
 ![UML for Question 2](Coursework/diagrams/question2.jpg)
+
+
 **Question 3**
+
 ![UML for Question 3](Coursework/diagrams/question3.jpg)
+
+
 **Question 4**
+
 ![UML for Question 4](Coursework/diagrams/question4.jpg)
 
 ## Lab Exercises
